@@ -1,0 +1,116 @@
+PANDUAN TEMPLATE CAFE
+=====================
+
+Isi folder (semua sejajar, tanpa subfolder):
+
+  index.html   Halaman utama cafe (tentang, sosmed, lokasi, jam buka)
+  menu.html    Menu + pesan lewat WhatsApp (menu dan pesan jadi satu)
+  wifi.html    Halaman WiFi sendiri (nama, password, tombol salin, QR WiFi)
+  qr.html      Halaman pembuat QR menu untuk tiap meja
+  config.js    SEMUA DATA CAFE ADA DI SINI (satu-satunya file yang sering diedit)
+  style.css    Gaya dasar dan warna
+  pesan.css    Gaya halaman menu, WiFi, dan QR
+  common.js, script.js, menu.js, wifi.js, qr.js   Kode program
+  qrcode.js    Pustaka pembuat QR (lihat lisensi di bawah)
+  app.py       Server Python (OPSIONAL, tidak wajib)
+
+
+1. MENGGANTI DATA CAFE
+----------------------
+Buka config.js lalu ganti:
+
+  name, tagline, about     Nama, slogan, deskripsi singkat
+  whatsapp                 Link WhatsApp. Format: https://wa.me/628123456789
+                           (nomor ini juga yang menerima pesanan)
+  wifi_ssid, wifi_password Nama dan password WiFi
+  wifi_security            WPA (paling umum), WEP, atau nopass kalau WiFi
+                           tanpa password. Boleh dihapus (dianggap WPA).
+  instagram, tiktok, facebook   Link sosial media
+  address, map_query       Alamat dan kata kunci untuk peta
+  hours                    Jam buka
+  menu                     Daftar menu
+
+Satu menu terlihat seperti ini:
+
+  { "id": 1, "name": "Espresso", "category": "Kopi", "price": 18000,
+    "description": "Shot tunggal pekat.", "image": "espresso.jpg" }
+
+Catatan penting:
+  - id setiap menu harus beda-beda.
+  - price angka saja, tanpa titik atau "Rp".
+  - Kategori dibuat otomatis dari isi "category".
+  - Menu sedang habis? Tambahkan  "available": false  di menu itu.
+  - Jangan ada koma setelah item terakhir, dan jangan tulis komentar
+    di dalam data.
+  - Foto sendiri: taruh file fotonya di folder yang sama, lalu isi
+    "image" dengan nama file, misalnya "latte.jpg".
+
+
+2. MENAYANGKAN GRATIS DARI HP (GitHub Pages)
+--------------------------------------------
+  1. Buat akun dan repositori baru di github.com (misal: kopi-senja).
+  2. Upload SEMUA file di folder ini ke repositori (Add file > Upload files).
+  3. Buka Settings > Pages. Pada "Branch" pilih main, folder / (root), Save.
+  4. Tunggu 1-2 menit. Alamat websitenya:
+       https://NAMAAKUN.github.io/kopi-senja/
+     Menu: .../menu.html   WiFi: .../wifi.html   Pembuat QR: .../qr.html
+
+Mengupdate website yang sudah online: upload semua file BARU, tetapi
+JANGAN menimpa config.js milik cafe (supaya data cafe tidak kembali ke
+contoh). File update-tanpa-config sudah disiapkan tanpa config.js.
+
+
+3. MEMBUAT QR UNTUK MEJA
+------------------------
+  1. Buka  alamat-website/qr.html  (dari website yang sudah online).
+  2. Alamat menu terisi otomatis. Isi jumlah meja, tekan "Buat QR".
+  3. Tekan "Cetak / Simpan PDF" lalu pilih Simpan sebagai PDF, atau
+     tekan "Unduh PNG" di tiap kartu.
+  4. Cetak dan tempel di meja. Pelanggan scan, pilih menu, dan nomor
+     mejanya sudah terisi otomatis.
+
+
+4. CARA KERJA PEMESANAN
+-----------------------
+Pelanggan memilih menu lalu menekan "Kirim Pesanan via WhatsApp". Pesanan
+terkirim sebagai pesan WhatsApp ke nomor cafe. Ini BUKAN sistem pembayaran:
+pembayaran tetap dilakukan di kasir atau dengan cara yang biasa dipakai cafe.
+
+
+5. HALAMAN WIFI
+---------------
+wifi.html menampilkan nama dan password WiFi, tombol salin, dan QR WiFi.
+Pelanggan cukup scan QR dengan kamera HP untuk langsung tersambung (Android
+10 ke atas dan iPhone). Cetak QR-nya juga boleh: buka wifi.html lalu
+tangkap layar bagian QR.
+
+
+6. MENJALANKAN DENGAN PYTHON (OPSIONAL)
+---------------------------------------
+Di komputer: pip install flask, lalu python app.py, buka
+http://localhost:5000. Tanpa ini pun website sudah jalan.
+
+
+LISENSI PUSTAKA PIHAK KETIGA
+----------------------------
+qrcode.js: "QR Code Generator for JavaScript"
+Copyright (c) 2009 Kazuhiko Arase
+Lisensi MIT. Sumber: https://github.com/kazuhikoarase/qrcode-generator
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

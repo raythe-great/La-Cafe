@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#18324F">
+  <title>Cafe & Restoran</title>
+  <meta name="description" content="Landing page cafe dan restoran">
+
+  <!-- Google Fonts: Playfair Display (heading) & Poppins (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pesan.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo"><i class="fa-solid fa-mug-hot"></i> <span data-text="name"></span></a>
+
+      <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="wifi.html">WiFi</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">Selamat datang di</p>
+        <h1 data-text="name"></h1>
+        <p class="hero-tagline" data-text="tagline"></p>
+        <div class="hero-actions">
+          <a href="menu.html" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Lihat Menu & Pesan</a>
+          <a href="wifi.html" class="btn btn-outline"><i class="fa-solid fa-wifi"></i> WiFi Gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TENTANG ========== -->
+    <section class="section" id="tentang">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Tentang Kami</span>
+          <h2 data-text="name"></h2>
+          <p data-text="about"></p>
+          <div class="menu-cta">
+            <a href="menu.html" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Lihat Menu & Pesan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOSIAL MEDIA ========== -->
+    <section class="section section-cream" id="sosmed">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Ikuti Kami</span>
+          <h2>Terhubung di Sosial Media</h2>
+          <p>Lihat promo, menu baru, dan keseruan terbaru kami.</p>
+        </div>
+
+        <div class="social-grid reveal">
+          <a class="social-card" data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i><span>Instagram</span>
+          </a>
+          <a class="social-card" data-href="tiktok" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i><span>TikTok</span>
+          </a>
+          <a class="social-card" data-href="whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
+          </a>
+          <a class="social-card" data-href="facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LOKASI & JAM BUKA ========== -->
+    <section class="section" id="kontak">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Kunjungi Kami</span>
+          <h2>Lokasi & Jam Buka</h2>
+        </div>
+
+        <div class="location-grid">
+          <div class="info-card reveal">
+            <h3><i class="fa-solid fa-location-dot"></i> Alamat</h3>
+            <p data-text="address"></p>
+
+            <h3><i class="fa-regular fa-clock"></i> Jam Operasional</h3>
+            <ul class="hours" id="hours"></ul>
+          </div>
+
+          <div class="map-wrap reveal">
+            <iframe id="mapFrame" title="Lokasi cafe di Google Maps" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> <span data-text="name"></span>. Semua hak dilindungi.</p>
+      <div class="footer-social">
+        <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a data-href="tiktok" href="#" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a data-href="whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a data-href="facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Urutan penting: config.js, common.js, lalu script.js -->
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

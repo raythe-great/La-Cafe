@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#18324F">
+  <title>Demo Pembayaran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .payment-wrap{max-width:760px;margin:40px auto;padding:24px}
+    .payment-card{background:#fff;border-radius:18px;padding:clamp(20px,4vw,36px);box-shadow:0 12px 35px #18324f14}
+    .payment-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:22px 0}
+    .payment-method{display:flex;align-items:center;gap:10px;border:1px solid #d9e0e8;border-radius:12px;padding:14px;cursor:pointer}
+    .payment-method:has(input:checked){border-color:#18324f;background:#f0f5fa}
+    .payment-details{background:#f7f8fa;border-radius:12px;padding:18px;margin:18px 0}
+    .payment-details p{margin:8px 0}
+    .copy-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .copy-row strong{overflow-wrap:anywhere}
+    .demo-note{font-size:.9rem;color:#795b20;background:#fff7df;padding:12px;border-radius:10px}
+    .payment-total{font-size:1.35rem;font-weight:700}
+    .payment-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .payment-actions .btn{flex:1}
+    @media(max-width:520px){.payment-wrap{margin:16px auto;padding:12px}.payment-card{padding:20px}}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><i class="fa-solid fa-mug-hot"></i> <span data-text="name"></span></a>
+      <nav class="nav-links"><a href="menu.html">Kembali ke Menu</a></nav>
+    </div>
+  </header>
+  <main class="payment-wrap">
+    <div class="payment-card">
+      <p class="section-label">CHECKOUT DEMO</p>
+      <h1>Instruksi Pembayaran</h1>
+      <p id="orderSummary">Memuat pesanan...</p>
+      <p>Total pembayaran: <span class="payment-total" id="total">Rp 0</span></p>
+      <h2>Pilih metode pembayaran</h2>
+      <div class="payment-methods">
+        <label class="payment-method"><input type="radio" name="method" value="bank" checked> <span><i class="fa-solid fa-building-columns"></i> Transfer Bank</span></label>
+        <label class="payment-method"><input type="radio" name="method" value="ewallet"> <span><i class="fa-solid fa-wallet"></i> E-Wallet</span></label>
+        <label class="payment-method"><input type="radio" name="method" value="qris"> <span><i class="fa-solid fa-qrcode"></i> QRIS</span></label>
+      </div>
+      <div class="payment-details" id="details" aria-live="polite"></div>
+      <p class="demo-note"><strong>Catatan demo:</strong> Ini hanya simulasi. Tidak ada transaksi atau verifikasi pembayaran sungguhan. Ganti data contoh sebelum demo.</p>
+      <div class="payment-actions">
+        <button class="btn btn-primary" id="paidDemo" type="button">Simulasikan Pembayaran Berhasil</button>
+        <a class="btn btn-outline" href="menu.html">Kembali ke Menu</a>
+      </div>
+      <p id="status" role="status" aria-live="polite"></p>
+    </div>
+  </main>
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>

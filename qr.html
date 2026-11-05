@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#18324F">
+  <title>QR Menu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pesan.css">
+</head>
+<body class="qr-page">
+  <div class="qr-wrap">
+
+    <div class="qr-top no-print">
+      <a class="m-brand" href="index.html"><i class="fa-solid fa-mug-hot"></i><span data-text="name"></span></a>
+    </div>
+
+    <!-- ========== PENGATURAN QR ========== -->
+    <section class="qr-panel no-print">
+      <h1>Buat QR Menu</h1>
+      <p class="sub">Tempel QR di setiap meja. Pelanggan scan, pilih menu, lalu kirim pesanan lewat WhatsApp.</p>
+
+      <div class="form-row">
+        <label for="menuUrl">Alamat halaman menu (menu.html)</label>
+        <input id="menuUrl" type="url" inputmode="url" placeholder="https://namamu.github.io/cafe/menu.html" autocomplete="off">
+        <small class="help" id="urlHelp"></small>
+      </div>
+
+      <div class="form-row">
+        <label for="tableCount">Jumlah meja</label>
+        <input id="tableCount" type="number" min="1" max="60" value="10" inputmode="numeric">
+      </div>
+
+      <label class="checkline">
+        <input type="checkbox" id="withGeneral" checked>
+        Sertakan 1 QR umum (tanpa nomor meja)
+      </label>
+
+      <div class="qr-actions">
+        <button class="btn btn-primary" id="btnGenerate" type="button"><i class="fa-solid fa-qrcode"></i> Buat QR</button>
+        <button class="btn btn-ghost" id="btnPrint" type="button"><i class="fa-solid fa-print"></i> Cetak / Simpan PDF</button>
+      </div>
+      <p class="status" id="qrStatus"></p>
+    </section>
+
+    <!-- ========== HASIL QR ========== -->
+    <section class="qr-grid" id="qrGrid" aria-live="polite"></section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="qrcode.js"></script>
+  <script src="qr.js"></script>
+</body>
+</html>
