@@ -16,7 +16,7 @@ const CAFE_DATA = {
   "name": "La'Cafe",
   "tagline": "Italiano.",
   "about": "One and only Fancy cafe in indonesia.",
-  "order_greeting": "Gracias Sir', saya mau pesan:",
+  "order_greeting": "Buongiorno, signore. Vorrei ordinare:",
 
   "wifi_ssid": "L'aC",
   "wifi_password": "AnjayAlok",
